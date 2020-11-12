@@ -1,0 +1,79 @@
+@import "../../../breakpoint.less";
+
+.container-contact {
+  display: flex;
+  flex-direction: column;
+
+  .texte {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+
+  .social-media {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
+
+    .rs {
+      width: 60px;
+      height: 60px;
+      background-size: contain;
+
+      @media (min-width: @tablet-min) {
+        width: 100px;
+        height: 100px;
+      }
+
+      &.facebook {
+        background-image: url("../../../assets/facebook.png");
+        margin-right: 60px;
+      }
+
+      &.instagram {
+        background-image: url("../../../assets/instagram.png");
+      }
+
+      a {
+        height: 100%;
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    textarea {
+      height: 300px;
+      width: 100%;
+      border-radius: 60px;
+      background: ghostwhite;
+      resize: none;
+      margin: auto;
+      outline: none;
+      padding: 40px;
+      font-size: 24px;
+      letter-spacing: -2px;
+
+      @media (min-width: @tablet-min) {
+        width: 90%;
+      }
+
+      @media (min-width: @desktop-min) {
+        width: 700px;
+      }
+    }
+
+    button {
+      width: 140px;
+      height: 50px;
+      font-size: 30px;
+      border-radius: 20px;
+      border: none;
+      margin: auto;
+      margin-top: 15px;
+    }
+  }
+}

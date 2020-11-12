@@ -1,0 +1,91 @@
+@import "../../../breakpoint.less";
+
+.formules {
+  position: relative;
+
+  padding: 0 10px;
+
+  @media (min-width: @tablet-min) {
+    padding: 0 70px;
+  }
+
+  @media (min-width: @desktop-min) {
+    padding: 0 100px;
+  }
+
+  .menu {
+    text-align: center;
+    list-style: none;
+    padding: 20px;
+    margin: auto;
+    border: 1px solid;
+
+    h1 {
+      font-size: 50px;
+      margin-bottom: 40px;
+    }
+
+    li {
+      margin-bottom: 45px;
+
+      .meal {
+        font-size: 40px;
+        font-weight: 600;
+
+        @media (min-width: @tablet-min) {
+          font-size: 45px;
+        }
+      }
+
+      .recettes {
+        .name {
+          font-size: 26px;
+
+          @media (min-width: @tablet-min) {
+            font-size: 28px;
+          }
+        }
+
+        p {
+          font-size: 16px;
+          margin-bottom: 30px;
+
+          @media (min-width: @tablet-min) {
+            margin-bottom: 10px;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  .container-formule {
+    display: flex;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .formule {
+      border: solid 1px white;
+      font-size: 34px;
+      width: 250px;
+      height: 250px;
+      padding: 30px 25px 30px 25px;
+      text-align: center;
+      margin-bottom: 20px;
+      border-radius: 130px;
+
+      .prix {
+        font-size: 55px;
+
+        @media (min-width: @tablet-min) {
+          font-size: 40px;
+        }
+
+        @media (min-width: @desktop-min) {
+          font-size: 50px;
+        }
+      }
+    }
+  }
+}
