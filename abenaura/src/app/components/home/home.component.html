@@ -1,0 +1,44 @@
+<div class="background"></div>
+<div class="title">
+  <div class="hoverlay"></div>
+  <span>{{ title }}</span>
+  <div class="logo-down" (click)="goDown()">
+    <div class="logo"></div>
+    <div class="arrow"></div>
+  </div>
+</div>
+
+<div class="container-content" #stickyMenu>
+
+  <div class="navigation" [class.sticky]="sticky">
+    <ul class="menu">
+      <li class="item" (click)="scrollTo(menu)">
+        <img class="menu-item" src="../../../assets/menu.png" alt="" />
+        <div class="text-item">menu</div>
+      </li>
+      <li class="item" (click)="scrollTo(pictures)">
+        <img class="photos" src="../../../assets/pictures.png" alt="" />
+        <div class="text-item">photos</div>
+      </li>
+      <li class="item" (click)="scrollTo(localisation)">
+        <img class="access" src="../../../assets/localisation.png" alt="" />
+        <div class="text-item">accès</div>
+      </li>
+      <li class="item" (click)="scrollTo(contact)">
+        <img class="contact" src="../../../assets/mail.png" alt="" />
+        <div class="text-item">contact</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <div class="comp"><app-presentation></app-presentation></div>
+    <div class="comp formules" #menu><app-formules></app-formules></div>
+    <div class="comp pictures" #pictures><app-pictures></app-pictures></div>
+    <div class="comp" #localisation><app-localisation></app-localisation></div>
+    <div class="comp" #contact><app-contact></app-contact></div>
+  </div>
+
+  <footer>Création du site web <a href="https://www.linkedin.com/in/bberanger">@BevLaDev</a></footer>
+</div>
+

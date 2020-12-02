@@ -8,9 +8,15 @@ import { DropboxService } from '../../../services/dropbox.service';
 })
 export class PicturesComponent implements OnInit {
   public pictures = [];
-  public defaultPicture = [
-    '../../../assets/img/',
-    // récuperer toutes les photos par defautls dans ce dossier
+  public defaultPictures = [
+    '../../../assets/img/food.jpg',
+    '../../../assets/img/food1.jpg',
+    '../../../assets/img/food2.jpg',
+    '../../../assets/img/food3.jpg',
+    '../../../assets/img/food4.jpg',
+    '../../../assets/img/food5.jpg',
+    '../../../assets/img/food6.jpg',
+    '../../../assets/img/food7.jpg'
   ]
 
   constructor(
@@ -18,20 +24,25 @@ export class PicturesComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.displayPictures();
+  }
+
+  displayPictures() {
     this.dropbox.getPictures().subscribe((value: any) => {
 
       if (value) {
         this.dropbox.getThumbnail(value.entries).subscribe((element: any) => {
-          
-          element.entries.forEach(picture => {
-            this.pictures.push(picture.thumbnail);
-          });
+
+          if (element) {
+            element.entries.forEach(picture => {
+              this.pictures.push(picture.thumbnail);
+            });
+          }
         })
       }
       else {
-        // faire en sorte d'envoyer le defaultpicture à la place du picture + foreach dessus dans le html
+        throw new Error('Problème récuperation dropbox');
       }
-
     });
   }
 }

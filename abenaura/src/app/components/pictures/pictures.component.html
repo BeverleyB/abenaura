@@ -1,5 +1,14 @@
 <div class="pictures">
-  <div class="picture" *ngFor="let picture of pictures">
-    <img src="{{'data:image/jpg;base64,' + picture}}" alt="" />
-  </div>
+  <ng-template [ngIf]="pictures.length > 0" [ngIfElse]="defaultpictures">
+    <div class="picture" *ngFor="let picture of pictures">
+      <div class="" *ngIf=""></div>
+      <img src="{{'data:image/jpg;base64,' + picture}}" alt="" />
+    </div>
+  </ng-template>
+
+  <ng-template #defaultpictures>
+    <div class="picture" *ngFor="let defpicture of defaultPictures">
+      <img src="{{defpicture}}" alt="" />
+    </div>
+  </ng-template>
 </div>

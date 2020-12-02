@@ -18,6 +18,7 @@ const {
   SENDER_EMAIL_ADDRESS,
 } = process.env;
 
+
 const oauth2Client = new OAuth2(
   MAILING_SERVICE_CLIENT_ID,
   MAILING_SERVICE_CLIENT_SECRET,
@@ -46,13 +47,16 @@ app.post("/sendmail", (req, res) => {
     },
   });
 
-  ejs.renderFile('./templates/email-tmp.ejs', { title: 'toto', message: req.body.message }, {}, (e, content) => {
+
+  ejs.renderFile('./templates/email-tmp.ejs', { email: req.body.email, message: req.body.message }, {}, (e, content) => {
     if (e) return e;
 
+    let from = `abenaura website <SENDER_EMAIL_ADDRESS>`
+
     const mailOptions = {
-      from: 'abenaura', SENDER_EMAIL_ADDRESS,
-      to: SENDER_EMAIL_ADDRESS,
-      subject: 'Nouveau message user',
+      from: from,
+      to: 'SENDER_EMAIL_ADDRESS',
+      subject: 'Un nouveau message sur ton site <3',
       html: content,
     };
 
@@ -62,6 +66,7 @@ app.post("/sendmail", (req, res) => {
       }
       console.log("Message sent: %s", info.messageId);
       console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+      res.send(info);
     });
 
   });

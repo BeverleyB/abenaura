@@ -8,10 +8,15 @@ import { AppComponent } from './app.component';
 import { LocalisationComponent } from './components/localisation/localisation.component';
 import { PicturesComponent } from './components/pictures/pictures.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { PresentationComponent } from './components/presentation/presentation.component';
+import { FormulesComponent } from './components/formules/formules.component';
 
 import { HttpService } from '../services/http.service';
-import { NewsComponent } from './components/news/news.component';
-import { FormulesComponent } from './components/formules/formules.component';
+
+import config from '../config.json';
+import { AppRoutingModule } from './app-routing.module';
+import { Redirect404Component } from './components/redirect404/redirect404.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,16 +24,19 @@ import { FormulesComponent } from './components/formules/formules.component';
     LocalisationComponent,
     PicturesComponent,
     ContactComponent,
-    NewsComponent,
+    PresentationComponent,
     FormulesComponent,
+    Redirect404Component,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyC1jtKqOZitlvKh8yOZc4ByFAbVfEySYKo',
+      apiKey: config.gmap,
     }),
+    AppRoutingModule,
   ],
   providers: [HttpService],
   bootstrap: [AppComponent],

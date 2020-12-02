@@ -1,0 +1,67 @@
+@import "../../../breakpoint.less";
+
+:host {
+  color: white;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .background {
+    background: url("../../../assets/404-wallpaper.jpg") no-repeat center;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
+  h1 {
+    font-family: "Cupcake";
+    margin-top: 50px;
+    font-size: 60px;
+
+    @media (min-width: @tablet-min) {
+      font-size: 135px;
+    }
+  }
+
+  .error {
+    font-family: "Cabin Bold";
+    font-size: 45px;
+
+    @media (min-width: @tablet-min) {
+      font-size: 70px;
+    }
+
+    &.number {
+      font-size: 100px;
+
+      @media (min-width: @tablet-min) {
+        font-size: 150px;
+      }
+    }
+  }
+
+  .button {
+    width: 250px;
+    margin: auto;
+    background: darkseagreen;
+    padding: 20px;
+    border: solid 2px white;
+    cursor: pointer;
+    font-family: "Cabin Regular";
+    margin-top: 100px;
+
+    @media (min-width: @tablet-min) {
+      width: 400px;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}

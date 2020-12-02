@@ -3,56 +3,79 @@
 .formules {
   position: relative;
 
-  padding: 0 10px;
-
-  @media (min-width: @tablet-min) {
-    padding: 0 70px;
-  }
-
-  @media (min-width: @desktop-min) {
-    padding: 0 100px;
-  }
-
-  .menu {
-    text-align: center;
-    list-style: none;
-    padding: 20px;
-    margin: auto;
-    border: 1px solid;
+  .container-menu {
+    background: url("../../../assets/background2.jpg") no-repeat;
+    background-position: top right;
+    background-size: cover;
+    padding: 80px 0;
+    position: relative;
 
     h1 {
-      font-size: 50px;
-      margin-bottom: 40px;
-    }
+      margin-bottom: 60px;
+      text-align: center;
+      font-family: "Cabin Bold";
+      color: white;
+      position: inherit;
+      font-size: 45px;
 
-    li {
-      margin-bottom: 45px;
-
-      .meal {
-        font-size: 40px;
-        font-weight: 600;
-
-        @media (min-width: @tablet-min) {
-          font-size: 45px;
-        }
+      @media (min-width: @tablet-min) {
+        font-size: 65px;
       }
 
-      .recettes {
-        .name {
-          font-size: 26px;
+      @media (min-width: @desktop-min) {
+        font-size: 85px;
+      }
+    }
 
-          @media (min-width: @tablet-min) {
-            font-size: 28px;
+    .menu {
+      text-align: center;
+      list-style: none;
+      margin: auto;
+      border: 1px solid;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 30px 0;
+      width: 90%;
+      letter-spacing: 1px;
+      background-color: white;
+      opacity: 0.8;
+
+      li {
+        padding: 25px;
+
+        @media (min-width: @desktop-min) {
+          padding: 30px;
+          flex: 1;
+        }
+
+        .meal {
+          font-size: 40px;
+          font-weight: 600;
+          margin-bottom: 20px;
+          font-family: "Cabin Bold";
+          line-height: 60px;
+
+          @media (min-width: @desktop-min) {
+            margin-bottom: 30px;
+            font-size: 38px;
+          }
+
+          @media (min-width: @desktop-max) {
+            font-size: 45px;
           }
         }
 
-        p {
-          font-size: 16px;
-          margin-bottom: 30px;
+        .recettes {
+          .name {
+            font-size: 22px;
+            font-family: "Frederika";
+          }
 
-          @media (min-width: @tablet-min) {
-            margin-bottom: 10px;
-            font-size: 18px;
+          p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            font-family: "Averia Light Italic";
           }
         }
       }
@@ -61,29 +84,330 @@
 
   .container-formule {
     display: flex;
-    margin-top: 50px;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px 0px 0px 0;
+    background: url("../../../assets/ardoise.jpg") no-repeat;
+    background-size: cover;
+    color: white;
+    font-family: "Averia Regular";
 
-    .formule {
-      border: solid 1px white;
-      font-size: 34px;
-      width: 250px;
-      height: 250px;
-      padding: 30px 25px 30px 25px;
-      text-align: center;
-      margin-bottom: 20px;
-      border-radius: 130px;
+    @media (min-width: @tablet-min) {
+      padding: 50px 0;
+    }
 
-      .prix {
-        font-size: 55px;
+    .row {
+      justify-content: space-around;
+      width: 100%;
+      margin: 0;
+
+      &.formule {
+        @media (min-width: @tablet-min) {
+          height: 400px;
+        }
+      }
+
+      &:first-of-type {
+        margin-bottom: 60px;
+      }
+
+      &.boissons {
+        flex-direction: column;
+        align-items: center;
 
         @media (min-width: @tablet-min) {
-          font-size: 40px;
+          justify-content: center;
+          flex-direction: row;
+          align-items: baseline;
+        }
+      }
+
+      .formule {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+
+        @media (min-width: @tablet-min) {
+          margin-bottom: 0;
         }
 
-        @media (min-width: @desktop-min) {
-          font-size: 50px;
+        &:first-of-type {
+          justify-content: flex-start;
+        }
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+
+        .title {
+          text-align: center;
+          font-family: "Cabin Bold";
+          margin-bottom: 15px;
+          font-size: 30px;
+          margin-bottom: 30px;
+          padding: 5px 0;
+          color: white;
+          text-transform: uppercase;
+
+          @media (min-width: @tablet-min) {
+            margin-bottom: 20px;
+            font-size: 35px;
+          }
+
+          @media (min-width: @desktop-min) {
+            font-size: 40px;
+          }
+
+          @media (min-width: @desktop-max) {
+            margin-bottom: 30px;
+          }
+        }
+
+        .circle-formule {
+          width: 230px;
+          height: 230px;
+          text-align: center;
+          display: table;
+          position: relative;
+
+          &:after {
+            content: "";
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: 0;
+            background: url("../../../assets/circle-line.png") no-repeat center;
+            background-size: contain;
+            animation: AnimateCircleFormule 2s linear infinite;
+            animation-direction: alternate;
+          }
+
+          @media (min-width: @tablet-min) {
+            width: 250px;
+            height: 250px;
+          }
+
+          @media (min-width: @desktop-min) {
+            width: 270px;
+            height: 270px;
+          }
+
+          &.deux {
+            &:after {
+              animation: AnimateCircleFormule 3s linear infinite;
+              animation-direction: alternate;
+            }
+            .text {
+              animation: AnimateTexteFormule 3s linear infinite;
+              animation-direction: alternate;
+            }
+          }
+
+          .text {
+            display: table-cell;
+            vertical-align: middle;
+            padding: 0 36px;
+            font-family: "Averia Bold";
+            font-size: 22px;
+            z-index: 1;
+            animation: AnimateTexteFormule 2s linear infinite;
+            animation-direction: alternate;
+
+            @media (min-width: @tablet-min) {
+              font-size: 25px;
+              padding-top: 20px;
+              padding-left: 30px;
+              padding-right: 20px;
+            }
+
+            @media (min-width: @desktop-min) {
+              font-size: 28px;
+              padding-left: 40px;
+              padding-right: 28px;
+            }
+
+            .plus {
+              font-size: 80px;
+              position: absolute;
+              left: 40px;
+              top: 42px;
+            }
+
+            .prix {
+              font-size: 40px;
+              font-family: "Averia Bold";
+              color: darkseagreen;
+              opacity: 1 !important;
+
+              @media (min-width: @tablet-min) {
+                font-size: 50px;
+              }
+
+              @media (min-width: @desktop-min) {
+                font-size: 60px;
+              }
+            }
+          }
+
+          @keyframes AnimateCircleFormule {
+            0%,
+            30%,
+            60%,
+            90% {
+              opacity: 0.5;
+            }
+
+            15%,
+            75% {
+              opacity: 1;
+              transform: rotate(0);
+            }
+
+            45% {
+              opacity: 1;
+              transform: rotate(2deg);
+            }
+
+            100% {
+              opacity: 1;
+              transform: rotate(-2deg);
+            }
+          }
+
+          @keyframes AnimateTexteFormule {
+            0%,
+            50%,
+            100% {
+              transform: rotate(0);
+            }
+
+            25% {
+              transform: rotate(2deg);
+            }
+
+            75% {
+              transform: rotate(-2deg);
+            }
+          }
+        }
+      }
+
+      .boisson {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+
+        .image {
+          width: 120px;
+          height: 120px;
+
+          @media (min-width: @tablet-min) {
+            width: 150px;
+            height: 150px;
+          }
+        }
+
+        .container-image {
+          display: flex;
+          flex-direction: row;
+        }
+
+        &.soft {
+          margin: 30px 0;
+
+          @media (min-width: @tablet-min) {
+            margin: 0;
+            margin-right: 35px;
+          }
+
+          @media (min-width: @desktop-min) {
+            margin: 0;
+            margin-right: 200px;
+          }
+
+          .image {
+            &.chaude {
+              background: url(../../../assets/coffee.png) no-repeat;
+              background-size: contain;
+            }
+
+            &.froide {
+              background: url(../../../assets/cold-drink.png) no-repeat;
+              background-size: contain;
+            }
+          }
+        }
+
+        &.alcool {
+          .image {
+            background: url("../../../assets/alcool.png") no-repeat;
+            background-size: contain;
+            width: 150px;
+            height: 150px;
+
+            @media (min-width: @tablet-min) {
+              width: 170px;
+              height: 170px;
+            }
+          }
+        }
+
+        .text {
+          padding: 20px 0;
+          text-align: center;
+          font-size: 22px;
+
+          @media (min-width: @tablet-min) {
+            font-size: 34px;
+          }
+
+          .prix {
+            color: darkseagreen;
+            font-size: 45px;
+            padding: 10px;
+          }
+        }
+      }
+
+      .button {
+        font-family: "Averia Bold";
+        width: 100%;
+        font-size: 23px;
+        text-align: center;
+        padding: 20px 5px;
+        margin-top: 30px;
+        cursor: pointer;
+        text-transform: uppercase;
+        color: white;
+        background-color: darkseagreen;
+        height: 100px;
+        line-height: 60px;
+        transition: background-color 0.5s;
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: white;
+          color: darkseagreen;
+          border: 2px solid darkseagreen;
+        }
+
+        @media (min-width: @tablet-min) {
+          width: 410px;
+          border: 1px solid white;
+          margin: 50px 0;
+          padding: 20px;
+          font-size: 25px;
+
+          &:hover,
+          &:focus,
+          &:active {
+            font-size: 28px;
+          }
         }
       }
     }

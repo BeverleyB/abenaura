@@ -1,11 +1,17 @@
 <div class="container-access">
-  <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+  <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng" [scrollwheel]="null">
     <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
   </agm-map>
-  <div class="texte">
-    2, place Arnaud Bernard <br>
-    31000, Toulouse<br />
-    du mardi au samedi<br />
-    de 11H30 a 16H00
+  <div class="container-texte">
+    <div class="background-image"></div>
+    <div class="background-texte">
+      <div class="texte">
+        2 place Arnaud Bernard <br>
+        31000 Toulouse<br />
+        de <span class="strong">11h30</span> à <span class="strong">15H00</span><br>
+        du <span class="strong">lundi</span> au <span class="strong">vendredi</span><br />
+        et petit déj de <span class="strong">9h</span> à <span class="strong">12h</span> le <span class="strong">samedi</span>
+      </div>
+    </div>
   </div>
 </div>
