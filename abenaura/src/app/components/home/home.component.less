@@ -30,6 +30,10 @@
     letter-spacing: -20px;
     font-family: "Cupcake";
 
+    @media (max-width: 320px) {
+      font-size: 95px;
+    }
+
     @media (min-width: @tablet-min) {
       font-size: 26vw;
       letter-spacing: -25px;
@@ -158,9 +162,29 @@
             }
           }
 
-          img {
+          .img {
             width: 40px;
             height: 40px;
+
+            &.menu-item {
+              background: url(../../../assets/menu.png) no-repeat center;
+              background-size: contain;
+            }
+
+            &.photos {
+              background: url(../../../assets/pictures.png) no-repeat center;
+              background-size: contain;
+            }
+
+            &.access {
+              background: url(../../../assets/localisation.png) no-repeat center;
+              background-size: contain;
+            }
+
+            &.contact {
+              background: url(../../../assets/mail.png) no-repeat center;
+              background-size: contain;
+            }
 
             @media (min-width: @tablet-min) {
               width: 50px;
@@ -174,6 +198,10 @@
             letter-spacing: -2px;
             font-family: "Averia Light";
 
+            @media (max-width: 320px) {
+              font-size: 22px;
+            }
+
             &:after {
               display: block;
               position: absolute;
@@ -184,6 +212,10 @@
               background-color: darkseagreen;
               content: "";
               transition: height 0.5s;
+
+              @media (max-width: 320px) {
+                bottom: -24px;
+              }
 
               @media (min-width: @tablet-min) {
                 bottom: -15px;

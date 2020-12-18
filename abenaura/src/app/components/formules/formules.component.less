@@ -56,6 +56,10 @@
           font-family: "Cabin Bold";
           line-height: 60px;
 
+          @media (max-width: 320px) {
+            font-size: 32px;
+          }
+
           @media (min-width: @desktop-min) {
             margin-bottom: 30px;
             font-size: 38px;
@@ -376,13 +380,12 @@
       .button {
         font-family: "Averia Bold";
         width: 100%;
-        font-size: 23px;
+        font-size: 22px;
         text-align: center;
         padding: 20px 5px;
         margin-top: 30px;
         cursor: pointer;
         text-transform: uppercase;
-        color: white;
         background-color: darkseagreen;
         height: 100px;
         line-height: 60px;
@@ -392,8 +395,19 @@
         &:focus,
         &:active {
           background-color: white;
-          color: darkseagreen;
           border: 2px solid darkseagreen;
+
+          .link {
+            color: darkseagreen;
+
+            @media (min-width: @tablet-min) {
+              font-size: 28px;
+            }
+          }
+        }
+
+        @media (max-width: 320px) {
+          font-size: 20px;
         }
 
         @media (min-width: @tablet-min) {
@@ -401,12 +415,15 @@
           border: 1px solid white;
           margin: 50px 0;
           padding: 20px;
-          font-size: 25px;
+        }
 
-          &:hover,
-          &:focus,
-          &:active {
-            font-size: 28px;
+        .link {
+          color: white;
+          text-decoration: none;
+          transition: color 0.5s, font-size 0.5s;
+
+          @media (min-width: @tablet-min) {
+            font-size: 25px;
           }
         }
       }

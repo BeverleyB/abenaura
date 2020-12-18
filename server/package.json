@@ -5,7 +5,9 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel app.js -d dist",
+    "start": "npm run build && node dist/app.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +18,10 @@
     "express": "^4.17.1",
     "googleapis": "^61.0.0",
     "nodemailer": "^6.4.11"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11"
   }
 }

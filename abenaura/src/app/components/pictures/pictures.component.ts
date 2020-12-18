@@ -9,14 +9,14 @@ import { DropboxService } from '../../../services/dropbox.service';
 export class PicturesComponent implements OnInit {
   public pictures = [];
   public defaultPictures = [
-    '../../../assets/img/food.jpg',
-    '../../../assets/img/food1.jpg',
-    '../../../assets/img/food2.jpg',
-    '../../../assets/img/food3.jpg',
-    '../../../assets/img/food4.jpg',
-    '../../../assets/img/food5.jpg',
-    '../../../assets/img/food6.jpg',
-    '../../../assets/img/food7.jpg'
+    '/assets/img/food.jpg',
+    '/assets/img/food1.jpg',
+    '/assets/img/food2.jpg',
+    '/assets/img/food3.jpg',
+    '/assets/img/food4.jpg',
+    '/assets/img/food5.jpg',
+    '/assets/img/food6.jpg',
+    '/assets/img/food7.jpg'
   ]
 
   constructor(

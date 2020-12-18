@@ -1,15 +1,15 @@
-const express = require("express");
-const bodyparser = require("body-parser");
-const cors = require("cors");
-const app = express();
-const router = express.Router();
-const nodemailer = require("nodemailer");
-const ejs = require('ejs');
+import express from 'express';
+import bodyparser from 'body-parser';
+import cors from 'cors';
+import nodemailer from 'nodemailer';
+import ejs from 'ejs';
+import { google } from 'googleapis';
 
-const { google } = require("googleapis");
 const { OAuth2 } = google.auth;
 
 const OAUTH_PLAYGROUND = "https://developers.google.com/oauthplayground";
+
+const app = express();
 
 const {
   MAILING_SERVICE_CLIENT_ID,
@@ -17,7 +17,6 @@ const {
   MAILING_SERVICE_REFRESH_TOKEN,
   SENDER_EMAIL_ADDRESS,
 } = process.env;
-
 
 const oauth2Client = new OAuth2(
   MAILING_SERVICE_CLIENT_ID,
@@ -55,7 +54,7 @@ app.post("/sendmail", (req, res) => {
 
     const mailOptions = {
       from: from,
-      to: 'SENDER_EMAIL_ADDRESS',
+      to: SENDER_EMAIL_ADDRESS,
       subject: 'Un nouveau message sur ton site <3',
       html: content,
     };

@@ -11,6 +11,10 @@
     height: 140px;
     position: relative;
 
+    @media (max-width: 320px) {
+      height: 90px;
+    }
+
     @media (min-width: @tablet-min) {
       height: 250px;
     }
@@ -29,6 +33,10 @@
     &:nth-of-type(8) {
       width: 50%;
       height: 250px;
+
+      @media (max-width: 320px) {
+        height: 180px;
+      }
 
       @media (min-width: @tablet-min) {
         height: 290px;
