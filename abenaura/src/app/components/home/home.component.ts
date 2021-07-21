@@ -11,7 +11,7 @@ export class HomeComponent {
 
   public menuPosition: any;
   public sticky: boolean = false;
-  public title = 'abenaura';
+  public title: string = 'abenaura';
 
   ngAfterViewInit() {
     this.menuPosition = this.menuElement.nativeElement.offsetTop;

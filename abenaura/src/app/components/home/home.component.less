@@ -2,46 +2,122 @@
 
 :host {
   overflow: hidden;
-  position: relative;
+  // position: relative;
 
   .background {
-    background: url(../../../assets/wallpaper1.jpg);
+    background: url(../../../assets/wallpaper-mobile.jpg);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    position: fixed;
-    width: 100%;
-    height: 100vh;
+    overflow: hidden;
     background-position: center;
-    z-index: -1000;
+
+    @media (min-width: @tablet-min) {
+      background: url(../../../assets/wallpaper.jpg);
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
   }
 
   .title {
     text-align: center;
     position: relative;
-    font-size: 70px;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     width: 100%;
     font-weight: 100;
-    font-size: 112px;
+    font-size: 90px;
     color: white;
-    letter-spacing: -20px;
+    letter-spacing: -10px;
     font-family: "Cupcake";
+    overflow: hidden;
+    text-transform: none;
 
     @media (max-width: 320px) {
-      font-size: 95px;
+      font-size: 75px;
     }
 
     @media (min-width: @tablet-min) {
-      font-size: 26vw;
+      font-size: 185px;
       letter-spacing: -25px;
     }
 
+    @media (min-width: @desktop-min) {
+      font-size: 225px;
+    }
+
+    @media (min-width: @desktop-max) {
+      font-size: 270px;
+    }
+
     .hoverlay {
-      background-color: #5a6257;
-      opacity: 0.1;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+      top: 0;
+      z-index: 0;
+      background-color: black;
+      opacity: 0.3;
+    }
+
+    .title-background {
+      width: 40vh;
+      height: 40vh;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.4);
+      border: solid 5px;
+      z-index: 1;
+      transform: translate(-50%, -50%) rotate(45deg);
+      left: 50%;
+      top: 50%;
+
+      @media (min-width: @tablet-min) {
+        width: 70vh;
+        height: 70vh;
+      }
+
+      @media (min-width: @desktop-min) {
+        width: 90vh;
+        height: 90vh;
+      }
+
+      @media (min-width: @desktop-max) {
+        width: 100vh;
+        height: 100vh;
+      }
+    }
+
+    .logo {
+      background: url(../../../assets/logo.png) no-repeat center;
+      background-size: contain;
+      height: 70px;
+      width: 70px;
+      position: absolute;
+      top: 32%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+
+      @media (min-width: @tablet-min) {
+        height: 140px;
+        width: 140px;
+        top: 20%;
+      }
+
+      @media (min-width: @desktop-min) {
+        top: 15%;
+      }
     }
 
     span {
@@ -49,54 +125,53 @@
       top: 50%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
-
-      @media (min-width: @tablet-min) {
-        padding-left: 20px;
-      }
-
-      @media (min-width: @desktop-min) {
-        padding-left: 40px;
-      }
-
-      @media (min-width: @desktop-max) {
-        padding-left: 60px;
-      }
+      z-index: 1;
     }
 
-    .logo-down {
+    .arrow-down {
       left: 50%;
       transform: translate(-50%, -50%);
       animation: MoveUpDown 2s linear infinite;
       cursor: pointer;
       position: absolute;
       width: 100%;
-      height: 100px;
+      height: 60px;
+      z-index: 1;
 
       @media (min-width: @tablet-min) {
         height: 110px;
       }
 
       @media (min-width: @desktop-min) {
-        height: 120px;
+        height: 70px;
       }
 
       @media (min-width: @desktop-max) {
-        height: 140px;
-      }
-
-      .logo {
-        background: url(../../../assets/logo.png) no-repeat center;
-        background-size: contain;
-        width: 100%;
-        height: 100%;
+        height: 80px;
       }
 
       .arrow {
         background: url(../../../assets/arrow-white.png) no-repeat center;
         background-size: contain;
-        width: 80px;
-        height: 45px;
+        height: 65px;
+        width: 85px;
         margin: auto;
+
+        @media (max-width: 320px) {
+          width: 70px;
+        }
+
+        @media (min-width: @tablet-min) {
+          width: 120px;
+        }
+
+        @media (min-width: @desktop-min) {
+          width: 130px;
+        }
+
+        @media (min-width: @desktop-max) {
+          width: 170px;
+        }
       }
 
       @keyframes MoveUpDown {
@@ -158,6 +233,7 @@
             .text-item {
               &:after {
                 height: 8px;
+                transition: height 0.25s ease-in;
               }
             }
           }
@@ -193,29 +269,25 @@
           }
 
           .text-item {
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 100;
             letter-spacing: -2px;
             font-family: "Averia Light";
 
-            @media (max-width: 320px) {
-              font-size: 22px;
+            @media (min-width: @tablet-min) {
+              font-size: 28px;
             }
 
             &:after {
               display: block;
               position: absolute;
               left: 0;
-              bottom: -22px;
+              bottom: -25px;
               width: 100%;
               height: 0px;
               background-color: darkseagreen;
               content: "";
-              transition: height 0.5s;
-
-              @media (max-width: 320px) {
-                bottom: -24px;
-              }
+              transition: height 0.15s ease-out;
 
               @media (min-width: @tablet-min) {
                 bottom: -15px;
@@ -243,16 +315,19 @@
     }
 
     footer {
-      height: 15px;
-      font-size: 10px;
-      background-color: #443f37;
+      height: 20px;
+      line-height: 20px;
+      font-size: 8px;
+      background-color: darkseagreen;
       color: white;
       text-align: center;
       font-family: "Averia Light";
+      font-weight: 100;
 
       @media (min-width: @tablet-min) {
-        height: 20px;
+        height: 30px;
         font-size: 12px;
+        line-height: 30px;
       }
 
       a {

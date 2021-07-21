@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from 'src/services/http.service';
 
 @Component({
   selector: 'app-formules',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormulesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _http: HttpService) { }
 
   ngOnInit(): void {
+    // this.getMenuItem();
   }
 
+  // En attente retour uber
+  getMenuItem() {
+    this._http.getMenu().subscribe(value => {
+      console.log(value);
+    })
+  }
 }

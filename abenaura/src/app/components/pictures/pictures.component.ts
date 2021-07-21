@@ -9,18 +9,23 @@ import { DropboxService } from '../../../services/dropbox.service';
 export class PicturesComponent implements OnInit {
   public pictures = [];
   public defaultPictures = [
-    '/assets/img/food.jpg',
-    '/assets/img/food1.jpg',
-    '/assets/img/food2.jpg',
-    '/assets/img/food3.jpg',
-    '/assets/img/food4.jpg',
-    '/assets/img/food5.jpg',
-    '/assets/img/food6.jpg',
-    '/assets/img/food7.jpg'
+   'food.jpg',
+   'food1.jpg',
+   'food2.jpg',
+   'food3.jpg',
+   'food4.jpg',
+   'food5.jpg',
+   'food6.jpg',
+   'food7.jpg',
+   'food8.jpg',
+   'food9.jpg',
+   'food10.jpg',
+   'food11.jpg',
+   'food12.jpg',
+   'food13.jpg'
   ]
 
-  constructor(
-    private dropbox: DropboxService) {}
+  constructor(private dropbox: DropboxService) {}
 
   ngOnInit(): void {
 
@@ -44,5 +49,7 @@ export class PicturesComponent implements OnInit {
         throw new Error('Problème récuperation dropbox');
       }
     });
+
+
   }
 }

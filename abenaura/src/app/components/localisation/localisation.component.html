@@ -1,17 +1,42 @@
-<div class="container-access">
-  <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng" [scrollwheel]="null">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-  </agm-map>
-  <div class="container-texte">
-    <div class="background-image"></div>
-    <div class="background-texte">
-      <div class="texte">
-        2 place Arnaud Bernard <br>
-        31000 Toulouse<br />
-        de <span class="strong">11h30</span> à <span class="strong">15H00</span><br>
-        du <span class="strong">lundi</span> au <span class="strong">vendredi</span><br />
-        et petit déj de <span class="strong">9h</span> à <span class="strong">12h</span> le <span class="strong">samedi</span>
+<div class="container-access padding">
+  <div class="title">Retrouve moi</div>
+  <div class="separator"></div>
+
+  <div class="container-localisation">
+    <div class="bloc left">
+      <div class="picture exterieur"></div>
+    </div>
+
+    <div class="bloc center">
+      <div class="container-texte un">
+        <p>2 place Arnaud Bernard</p>
+        <p>31000 Toulouse</p>
+      </div>
+
+      <div class="container-texte deux">
+        <p>
+          du <span class="strong">lundi</span> au
+          <span class="strong">samedi</span>
+        </p>
+        <p>
+          de <span class="strong">11h30</span> à
+          <span class="strong">15H00</span>
+        </p>
       </div>
     </div>
+
+    <div class="bloc deux">
+      <div class="picture interieur"></div>
+    </div>
   </div>
+
+  <!-- GOOGLE MAP -->
+  <agm-map
+    [latitude]="lat"
+    [zoom]="zoom"
+    [longitude]="lng"
+    [scrollwheel]="null"
+  >
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
 </div>

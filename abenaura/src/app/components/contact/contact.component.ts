@@ -7,6 +7,8 @@ import {
 } from '@angular/forms';
 import { HttpService } from '../../../services/http.service';
 
+import config from '../../../config.json';
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -32,26 +34,26 @@ export class ContactComponent implements OnInit {
       message: this.FormData.controls['message'].value,
     };
 
-    this.mail.sendEmail('http://localhost:3000/sendmail', user).subscribe(
+    this.mail.sendEmail(config.mail_server_url, user).subscribe(
       (data) => {
         console.log('email send');
 
         this.success = true;
-        this.messageSendMail = "Message reçu merci!";
+        this.messageSendMail = "Message reçu, merci!";
 
         setTimeout(() => {
           this.success = false;
           this.FormData.reset();
-        }, 2000);
+        }, 3000);
       },
       (err) => {
         this.success = true
-        this.messageSendMail = "Une erreur s'est produite veuillez réessayer";
+        this.messageSendMail = "Une erreur s'est produite, veuillez réessayer";
 
         setTimeout(() => {
           this.success = false;
           this.FormData.reset();
-        }, 2000);
+        }, 3000);
 
         throw new Error(err);
       },

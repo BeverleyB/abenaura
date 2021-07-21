@@ -2,110 +2,178 @@
 
 .container-contact {
   display: flex;
-  flex-direction: column;
-  background: url("../../../assets/wood.jpg") no-repeat center;
-  background-size: cover;
-  padding-top: 70px;
-  padding-bottom: 70px;
   position: relative;
+  flex-direction: row;
+  flex-wrap: wrap;
 
-  .hoverlay {
-    background-color: #472b00;
-  }
-
-  .title {
-    color: white;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "Cabin Bold";
-    z-index: 1;
-    margin-bottom: 60px;
-    font-size: 45px;
-
-    @media (min-width: @tablet-min) {
-      font-size: 65px;
-      margin-bottom: 80px;
-    }
+  .separator {
+    background: url("../../../assets/divider-contact.png") no-repeat center
+      center;
+    background-size: contain;
+    margin-top: 10px;
+    width: 100%;
+    margin-bottom: 40px;
+    height: 20px;
 
     @media (min-width: @desktop-min) {
-      font-size: 85px;
+      height: 25px;
+    }
+
+    @media (min-width: @desktop-large) {
+      height: 30px;
+      margin-bottom: 50px;
     }
   }
 
-  .reseaux-sociaux,
-  .mail {
-    z-index: 1;
+  .container-content {
+    width: 100%;
+    background-color: #e2dedb;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 
-    .texte {
-      text-align: center;
-      margin-bottom: 30px;
-      font-family: "Averia Regular";
-      font-size: 20px;
-      padding: 0 20px;
-      color: white;
-      text-transform: uppercase;
-      z-index: 1;
+    .background {
+      background: url(../../../assets/pinapple-bg.png) no-repeat center;
+      background-size: contain;
+      position: absolute;
+      bottom: 0;
+      width: 110px;
+      height: 140px;
+      right: 0;
 
       @media (min-width: @tablet-min) {
-        font-size: 28px;
+        width: 160px;
+        height: 220px;
+        right: 0;
       }
 
       @media (min-width: @desktop-min) {
-        font-size: 32px;
+        width: 200px;
+        height: 260px;
+        right: 10px;
+      }
+
+      @media (min-width: @desktop-max) {
+        width: 250px;
+        height: 340px;
+        right: 30px;
+      }
+
+      @media (min-width: @desktop-large) {
+        width: 280px;
+        height: 380px;
+        right: 80px;
       }
     }
   }
 
-  .social-media {
+  .reseaux-sociaux {
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-bottom: 70px;
-    z-index: 1;
-    height: 70px;
 
-    @media (min-width: @tablet-min) {
-      height: 100px;
-      margin-bottom: 100px;
-    }
-
-    .rs {
-      width: 80px;
-      height: 60px;
+    .social-media {
+      height: 150px;
       display: flex;
       align-items: center;
 
-      &:hover,
-      &:active,
-      &:focus {
-        height: 80px;
+      @media (min-width: @tablet-min) {
+        height: 120px;
       }
+
+      @media (min-width: @desktop-min) {
+        height: 150px;
+      }
+    }
+
+    .rs {
+      width: 70px;
+      height: 50px;
+      transition: height 0.5s;
 
       @media (min-width: @tablet-min) {
         width: 90px;
-        height: 80px;
-        transition: height 0.5s;
+        height: 55px;
+      }
 
-        &:hover,
-        &:active,
-        &:focus {
-          height: 100px;
+      @media (min-width: @desktop-min) {
+        height: 60px;
+      }
+
+      @media (min-width: @desktop-max) {
+        height: 70px;
+      }
+
+      @keyframes AnimateLogo {
+        0%,
+        7% {
+          transform: rotateZ(0);
+        }
+        15% {
+          transform: rotateZ(-15deg);
+        }
+        20% {
+          transform: rotateZ(8deg);
+        }
+        25% {
+          transform: rotateZ(-8deg);
+        }
+        30% {
+          transform: rotateZ(4deg);
+        }
+        35% {
+          transform: rotateZ(-2deg);
+        }
+        40%,
+        100% {
+          transform: rotateZ(0);
         }
       }
 
       &.facebook {
         background: url("../../../assets/facebook.png") no-repeat center;
         background-size: contain;
-        margin-right: 40px;
+        animation: AnimateLogo 2s linear infinite;
+        margin-right: 30px;
 
-        @media (min-width: @tablet-min) {
-          margin-right: 60px;
+        @media (min-width: @desktop-max) {
+          margin-right: 50px;
+        }
+
+        @media (min-width: @desktop-large) {
+          margin-right: 80px;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+          animation-play-state: paused;
+          height: 70px;
+
+          @media (min-width: @tablet-min) {
+            height: 90px;
+            transition: height 0.5s;
+          }
         }
       }
 
       &.instagram {
         background: url("../../../assets/instagram.png") no-repeat center;
         background-size: contain;
+        animation: AnimateLogo 2s linear infinite;
+        animation-direction: alternate;
+
+        &:hover,
+        &:active,
+        &:focus {
+          animation-play-state: paused;
+          height: 70px;
+
+          @media (min-width: @tablet-min) {
+            height: 90px;
+            transition: height 0.5s;
+          }
+        }
       }
 
       a {
@@ -117,72 +185,98 @@
   }
 
   .mail {
-    .texte {
-      margin-bottom: 40px;
+    display: flex;
+    padding-bottom: 90px;
+    width: 100%;
+
+    @media (min-width: @tablet-min) {
+      padding-bottom: 50px;
     }
 
     form {
       display: flex;
       flex-direction: column;
-      width: 100%;
+      width: 80%;
       align-items: center;
       margin: auto;
 
       @media (min-width: @tablet-min) {
-        width: 90%;
-      }
-
-      @media (min-width: @desktop-min) {
-        width: 700px;
+        width: 40%;
+        position: relative;
       }
 
       .container-input {
         display: flex;
         flex-direction: column;
-        width: 90%;
+        width: 100%;
         text-align: center;
         position: relative;
 
         .popin {
-          height: 90%;
+          height: 60%;
           position: absolute;
           width: 100%;
-          background: url(../../../assets/popin-wallpaper.jpg) no-repeat center;
+          background: url(../../../assets/popin-background.jpg) no-repeat center;
           background-size: cover;
-          color: white;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 35px;
-          border: 2px solid white;
+          font-size: 18px;
+          border: 2px solid black;
           font-family: "Averia Bold";
-          padding: 50px;
+          padding: 30px;
 
           @media (min-width: @tablet-min) {
-            font-size: 45px;
+            font-size: 20px;
+            height: 90%;
+          }
+
+          @media (min-width: @desktop-max) {
+            font-size: 25px;
+          }
+
+          @media (min-width: @desktop-large) {
+            font-size: 30px;
           }
 
           .text-send-mail {
             padding: 20px;
-            background: rgba(204, 204, 204, 0.5);
+            background: rgba(236, 228, 214, 0.9);
+            border: solid 1px;
+
+            @media (min-width: @desktop-min) {
+              padding: 30px;
+            }
+
+            @media (min-width: @desktop-max) {
+              padding: 40px;
+            }
           }
         }
 
         .form-control {
           border: 1px solid black;
           box-shadow: none;
-          margin-bottom: 40px;
+          margin-bottom: 20px;
           font-family: "Averia Light";
+
+          @media (min-width: @tablet-min) {
+            margin-bottom: 40px;
+          }
 
           &::placeholder {
             text-align: center;
-            font-size: 22px;
+            font-size: 17px;
+
+            @media (min-width: @tablet-min) {
+              font-size: 20px;
+            }
           }
 
           &.email {
             height: 50px;
             padding: 0px 40px;
-            font-size: 22px;
+            font-size: 20px;
             text-align: center;
           }
 
@@ -192,10 +286,12 @@
             resize: none;
             outline: none;
             padding: 40px;
-            font-size: 22px;
+            font-size: 20px;
+            margin-bottom: 230px;
 
             @media (min-width: @tablet-min) {
-              font-size: 24px;
+              font-size: 22px;
+              margin-bottom: 40px;
             }
           }
         }
@@ -204,19 +300,133 @@
       button {
         width: 140px;
         height: 50px;
-        font-size: 22px;
+        font-size: 20px;
         border: 1px solid;
         background-color: white;
         opacity: 1;
         text-align: center;
         font-family: "Averia Light";
+        width: 40%;
+        position: absolute;
+        bottom: 140px;
+        z-index: 1;
 
         @media (min-width: @tablet-min) {
           font-size: 25px;
+          position: initial;
         }
 
         &:disabled {
-          opacity: 0.6;
+          @media (min-width: @tablet-min) {
+            opacity: 0.6;
+          }
+        }
+      }
+
+      .picture {
+        background: url("../../../assets/evaa.png") no-repeat center center;
+        background-size: contain;
+        position: absolute;
+        width: 110px;
+        height: 230px;
+        left: 0;
+        bottom: 0;
+
+        @media (min-width: @tablet-min) {
+          width: 160px;
+          height: 370px;
+          left: -160px;
+          top: 66px;
+        }
+
+        @media (min-width: @desktop-min) {
+          width: 180px;
+          height: 400px;
+          left: -178px;
+          top: 36px;
+        }
+
+        @media (min-width: @desktop-max) {
+          width: 240px;
+          height: 520px;
+          left: -234px;
+          top: -90px;
+        }
+
+        .bubble {
+          background: url("../../../assets/heart-bubble.png") no-repeat center
+            center;
+          background-size: contain;
+          position: absolute;
+          width: 90px;
+          height: 90px;
+          top: -60px;
+          right: -37px;
+          transform: rotate(-15deg);
+
+          @media (min-width: @tablet-min) {
+            width: 120px;
+            height: 120px;
+            top: -110px;
+            right: -5px;
+            transform: rotate(-40deg);
+          }
+
+          @media (min-width: @desktop-min) {
+            width: 130px;
+            height: 130px;
+            top: -120px;
+            right: -18px;
+            transform: rotate(-30deg);
+          }
+
+          @media (min-width: @desktop-max) {
+            width: 160px;
+            height: 160px;
+            top: -90px;
+            right: -40px;
+            transform: rotate(-15deg);
+          }
+
+          @media (min-width: @desktop-large) {
+            width: 180px;
+            height: 180px;
+            top: -120px;
+            right: -70px;
+          }
+
+          .texte {
+            font-family: "Averia Light";
+            text-align: center;
+            position: relative;
+            top: 28px;
+            left: 8px;
+            font-size: 11px;
+
+            @media (min-width: @tablet-min) {
+              top: 40px;
+              left: 8px;
+              font-size: 16px;
+              transform: rotate(15deg);
+            }
+
+            @media (min-width: @desktop-min) {
+              top: 43px;
+              left: 10px;
+              font-size: 17px;
+              transform: rotate(6deg);
+            }
+
+            @media (min-width: @desktop-max) {
+              top: 54px;
+              left: 13px;
+              font-size: 20px;
+            }
+
+            @media (min-width: @desktop-large) {
+              top: 60px;
+            }
+          }
         }
       }
     }

@@ -1,40 +1,57 @@
-<div class="container-contact">
-  <div class="hoverlay"></div>
+<div class="container-contact padding">
   <div class="title">Contacte moi</div>
+  <div class="separator"></div>
 
-  <div class="reseaux-sociaux">
-    <div class="texte">N'hésite pas à m'écrire ou à me rendre visite sur...</div>
-  
-    <div class="social-media">
-      <div class="rs facebook">
-        <a
-          target="_blank"
-          href="https://www.facebook.com/abenaura-Toulouse-102297108269491/"
-        ></a>
-      </div>
-      <div class="rs instagram">
-        <a
-          target="_blank"
-          href="https://www.instagram.com/abenaura_toulouse/?hl=fr"
-        ></a>
+  <div class="container-content">
+    <div class="reseaux-sociaux">
+      <div class="social-media">
+        <div class="rs facebook">
+          <a
+            target="_blank"
+            href="https://www.facebook.com/abenaura-Toulouse-102297108269491/"
+          ></a>
+        </div>
+        <div class="rs instagram">
+          <a
+            target="_blank"
+            href="https://www.instagram.com/abenaura_toulouse/?hl=fr"
+          ></a>
+        </div>
       </div>
     </div>
-  </div>
+    <div class="mail">
+      <form [formGroup]="FormData" (ngSubmit)="onSubmit()">
+        <div class="container-input">
+          <div class="popin" *ngIf="success">
+            <div class="text-send-mail">{{ messageSendMail }}</div>
+          </div>
+          <input
+            type="email"
+            class="form-control email"
+            name="email"
+            aria-describedby="emailHelp"
+            placeholder="Ton adresse mail"
+            formControlName="email"
+          />
 
-  <div class="mail">
-    <div class="texte">Ou à m'envoyer un mail par ici...</div>
-    
-    <form [formGroup]="FormData" (ngSubmit)="onSubmit()">
-      <div class="container-input">
-        <div class="popin" *ngIf="success">
-          <div class="text-send-mail">{{ messageSendMail }}</div>
+          <textarea
+            class="form-control message"
+            formControlName="message"
+            name="Comment"
+            placeholder="Ton message"
+          ></textarea>
         </div>
-        <input type="email" class="form-control email" name="email" aria-describedby="emailHelp" placeholder="Ton adresse mail" formControlName="email">
-  
-        <textarea class="form-control message" formControlName="message" name="Comment" placeholder="Ton message"></textarea>
-      </div>
-      <button type="submit" [disabled]="!FormData.valid">Envoyer</button>
-    </form>
-  </div>
 
+        <button type="submit" [disabled]="!FormData.valid">Envoyer</button>
+
+        <div class="picture">
+          <div class="bubble">
+            <div class="texte">À bientôt !</div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="background"></div>
+  </div>
 </div>

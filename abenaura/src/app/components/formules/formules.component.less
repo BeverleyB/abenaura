@@ -1,429 +1,281 @@
 @import "../../../breakpoint.less";
 
-.formules {
-  position: relative;
+.menu {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
 
-  .container-menu {
-    background: url("../../../assets/background2.jpg") no-repeat;
-    background-position: top right;
-    background-size: cover;
-    padding: 80px 0;
+  .separator {
     position: relative;
+    background: url("./assets/divider-formules.png") no-repeat center center;
+    background-size: contain;
+    width: 100%;
+    height: 25px;
+    margin: 10px 0;
 
-    h1 {
-      margin-bottom: 60px;
-      text-align: center;
-      font-family: "Cabin Bold";
-      color: white;
-      position: inherit;
-      font-size: 45px;
-
-      @media (min-width: @tablet-min) {
-        font-size: 65px;
-      }
-
-      @media (min-width: @desktop-min) {
-        font-size: 85px;
-      }
+    @media (min-width: @tablet-min) {
+      height: 30px;
     }
 
-    .menu {
-      text-align: center;
-      list-style: none;
-      margin: auto;
-      border: 1px solid;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 30px 0;
-      width: 90%;
-      letter-spacing: 1px;
-      background-color: white;
-      opacity: 0.8;
+    @media (min-width: @desktop-min) {
+      height: 35px;
+    }
 
-      li {
-        padding: 25px;
-
-        @media (min-width: @desktop-min) {
-          padding: 30px;
-          flex: 1;
-        }
-
-        .meal {
-          font-size: 40px;
-          font-weight: 600;
-          margin-bottom: 20px;
-          font-family: "Cabin Bold";
-          line-height: 60px;
-
-          @media (max-width: 320px) {
-            font-size: 32px;
-          }
-
-          @media (min-width: @desktop-min) {
-            margin-bottom: 30px;
-            font-size: 38px;
-          }
-
-          @media (min-width: @desktop-max) {
-            font-size: 45px;
-          }
-        }
-
-        .recettes {
-          .name {
-            font-size: 22px;
-            font-family: "Frederika";
-          }
-
-          p {
-            font-size: 16px;
-            margin-bottom: 30px;
-            font-family: "Averia Light Italic";
-          }
-        }
-      }
+    @media (min-width: @desktop-large) {
+      height: 40px;
     }
   }
 
-  .container-formule {
+  .container-menu {
     display: flex;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    width: 90%;
     flex-wrap: wrap;
     justify-content: center;
-    flex-direction: column;
-    padding: 50px 0px 0px 0;
-    background: url("../../../assets/ardoise.jpg") no-repeat;
-    background-size: cover;
-    color: white;
-    font-family: "Averia Regular";
 
-    @media (min-width: @tablet-min) {
-      padding: 50px 0;
+    @media (min-width: @desktop-min) {
+      margin: 60px 0;
     }
 
-    .row {
-      justify-content: space-around;
-      width: 100%;
-      margin: 0;
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 50%;
+      padding: 0 10px;
 
-      &.formule {
-        @media (min-width: @tablet-min) {
-          height: 400px;
-        }
-      }
-
-      &:first-of-type {
-        margin-bottom: 60px;
-      }
-
-      &.boissons {
-        flex-direction: column;
-        align-items: center;
-
-        @media (min-width: @tablet-min) {
-          justify-content: center;
-          flex-direction: row;
-          align-items: baseline;
-        }
-      }
-
-      .formule {
-        display: flex;
-        flex-direction: column;
+      &:nth-of-type(1),
+      &:nth-of-type(2) {
         margin-bottom: 50px;
 
         @media (min-width: @tablet-min) {
           margin-bottom: 0;
         }
-
-        &:first-of-type {
-          justify-content: flex-start;
-        }
-
-        &:last-of-type {
-          margin-bottom: 0;
-        }
-
-        .title {
-          text-align: center;
-          font-family: "Cabin Bold";
-          margin-bottom: 15px;
-          font-size: 30px;
-          margin-bottom: 30px;
-          padding: 5px 0;
-          color: white;
-          text-transform: uppercase;
-
-          @media (min-width: @tablet-min) {
-            margin-bottom: 20px;
-            font-size: 35px;
-          }
-
-          @media (min-width: @desktop-min) {
-            font-size: 40px;
-          }
-
-          @media (min-width: @desktop-max) {
-            margin-bottom: 30px;
-          }
-        }
-
-        .circle-formule {
-          width: 230px;
-          height: 230px;
-          text-align: center;
-          display: table;
-          position: relative;
-
-          &:after {
-            content: "";
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            position: absolute;
-            z-index: 0;
-            background: url("../../../assets/circle-line.png") no-repeat center;
-            background-size: contain;
-            animation: AnimateCircleFormule 2s linear infinite;
-            animation-direction: alternate;
-          }
-
-          @media (min-width: @tablet-min) {
-            width: 250px;
-            height: 250px;
-          }
-
-          @media (min-width: @desktop-min) {
-            width: 270px;
-            height: 270px;
-          }
-
-          &.deux {
-            &:after {
-              animation: AnimateCircleFormule 3s linear infinite;
-              animation-direction: alternate;
-            }
-            .text {
-              animation: AnimateTexteFormule 3s linear infinite;
-              animation-direction: alternate;
-            }
-          }
-
-          .text {
-            display: table-cell;
-            vertical-align: middle;
-            padding: 0 36px;
-            font-family: "Averia Bold";
-            font-size: 22px;
-            z-index: 1;
-            animation: AnimateTexteFormule 2s linear infinite;
-            animation-direction: alternate;
-
-            @media (min-width: @tablet-min) {
-              font-size: 25px;
-              padding-top: 20px;
-              padding-left: 30px;
-              padding-right: 20px;
-            }
-
-            @media (min-width: @desktop-min) {
-              font-size: 28px;
-              padding-left: 40px;
-              padding-right: 28px;
-            }
-
-            .plus {
-              font-size: 80px;
-              position: absolute;
-              left: 40px;
-              top: 42px;
-            }
-
-            .prix {
-              font-size: 40px;
-              font-family: "Averia Bold";
-              color: darkseagreen;
-              opacity: 1 !important;
-
-              @media (min-width: @tablet-min) {
-                font-size: 50px;
-              }
-
-              @media (min-width: @desktop-min) {
-                font-size: 60px;
-              }
-            }
-          }
-
-          @keyframes AnimateCircleFormule {
-            0%,
-            30%,
-            60%,
-            90% {
-              opacity: 0.5;
-            }
-
-            15%,
-            75% {
-              opacity: 1;
-              transform: rotate(0);
-            }
-
-            45% {
-              opacity: 1;
-              transform: rotate(2deg);
-            }
-
-            100% {
-              opacity: 1;
-              transform: rotate(-2deg);
-            }
-          }
-
-          @keyframes AnimateTexteFormule {
-            0%,
-            50%,
-            100% {
-              transform: rotate(0);
-            }
-
-            25% {
-              transform: rotate(2deg);
-            }
-
-            75% {
-              transform: rotate(-2deg);
-            }
-          }
-        }
       }
 
-      .boisson {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
+      @media (min-width: @tablet-min) {
+        width: 25%;
+      }
 
-        .image {
+      @media (min-width: @desktop-min) {
+        padding: 0 20px;
+      }
+
+      @media (min-width: @desktop-max) {
+        padding: 0 35px;
+      }
+
+      @media (min-width: @desktop-large) {
+        padding: 0 50px;
+      }
+
+      .picto {
+        width: 70px;
+        height: 70px;
+        border-radius: 110px;
+
+        @keyframes AnimatePicto {
+          15%,
+          75% {
+            transform: rotate(0);
+          }
+
+          45% {
+            transform: rotate(8deg);
+          }
+
+          100% {
+            transform: rotate(-8deg);
+          }
+        }
+
+        @media (min-width: @tablet-min) {
+          width: 90px;
+          height: 90px;
+        }
+
+        @media (min-width: @desktop-max) {
           width: 120px;
           height: 120px;
+        }
 
-          @media (min-width: @tablet-min) {
-            width: 150px;
-            height: 150px;
+        &.soupe {
+          background: url(./assets/soup-white.png) no-repeat center #ffa000;
+          background-size: 50px;
+          animation: AnimatePicto 3s linear infinite;
+          animation-direction: alternate;
+
+          @media (min-width: @desktop-max) {
+            background-size: 70px;
           }
         }
 
-        .container-image {
-          display: flex;
-          flex-direction: row;
-        }
+        &.salade {
+          background: url(./assets/salad-white.png) no-repeat center #c0ca33;
+          background-size: 50px;
+          animation: AnimatePicto 2s linear infinite;
+          animation-direction: alternate;
 
-        &.soft {
-          margin: 30px 0;
-
-          @media (min-width: @tablet-min) {
-            margin: 0;
-            margin-right: 35px;
-          }
-
-          @media (min-width: @desktop-min) {
-            margin: 0;
-            margin-right: 200px;
-          }
-
-          .image {
-            &.chaude {
-              background: url(../../../assets/coffee.png) no-repeat;
-              background-size: contain;
-            }
-
-            &.froide {
-              background: url(../../../assets/cold-drink.png) no-repeat;
-              background-size: contain;
-            }
+          @media (min-width: @desktop-max) {
+            background-size: 70px;
           }
         }
 
-        &.alcool {
-          .image {
-            background: url("../../../assets/alcool.png") no-repeat;
-            background-size: contain;
-            width: 150px;
-            height: 150px;
+        &.dessert {
+          background: url(./assets/cupcake-white.png) no-repeat center #ffca28;
+          background-size: 50px;
+          animation: AnimatePicto 4s linear infinite;
+          animation-direction: alternate;
 
-            @media (min-width: @tablet-min) {
-              width: 170px;
-              height: 170px;
-            }
+          @media (min-width: @desktop-max) {
+            background-size: 70px;
           }
         }
 
-        .text {
-          padding: 20px 0;
-          text-align: center;
-          font-size: 22px;
+        &.jus {
+          background: url(./assets/drink-white.png) no-repeat center #ef9a9a;
+          background-size: 50px;
+          animation: AnimatePicto 3s linear infinite;
+          animation-direction: alternate;
 
-          @media (min-width: @tablet-min) {
-            font-size: 34px;
-          }
-
-          .prix {
-            color: darkseagreen;
-            font-size: 45px;
-            padding: 10px;
+          @media (min-width: @desktop-max) {
+            background-size: 70px;
           }
         }
       }
 
-      .button {
-        font-family: "Averia Bold";
-        width: 100%;
+      .meal {
+        font-family: "Cupcake";
+        margin: 15px 0 0px 0;
+        color: darkseagreen;
         font-size: 22px;
-        text-align: center;
-        padding: 20px 5px;
-        margin-top: 30px;
+        letter-spacing: -2px;
+
+        @media (min-width: @desktop-min) {
+          font-size: 26px;
+        }
+
+        @media (min-width: @desktop-max) {
+          font-size: 25px;
+        }
+      }
+
+      .ingredients {
+        font-size: 16px;
+        font-family: "Averia Light Italic";
+        width: 100%;
+
+        @media (min-width: @tablet-min) {
+          font-size: 13px;
+        }
+
+        @media (min-width: @desktop-max) {
+          font-size: 15px;
+        }
+
+        @media (min-width: @desktop-large) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .container-livraison {
+    width: 100%;
+    background-color: darkseagreen;
+    color: white;
+    text-align: center;
+    position: relative;
+    background-image: url(../../../assets/food.png);
+    padding: 50px 0;
+
+    .arrow {
+      position: absolute;
+      top: -1px;
+      background: url(./assets/arrow.png) no-repeat center;
+      background-size: contain;
+      width: 60px;
+      height: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+
+      @media (min-width: @tablet-min) {
+        height: 30px;
+        top: 0;
+      }
+    }
+
+    .container-logo {
+      display: flex;
+      justify-content: center;
+
+      .logo {
+        width: 110px;
+        height: 60px;
+        background-color: white;
         cursor: pointer;
-        text-transform: uppercase;
-        background-color: darkseagreen;
-        height: 100px;
-        line-height: 60px;
-        transition: background-color 0.5s;
+        border-radius: 20px;
 
         &:hover,
         &:focus,
         &:active {
-          background-color: white;
-          border: 2px solid darkseagreen;
-
-          .link {
-            color: darkseagreen;
-
-            @media (min-width: @tablet-min) {
-              font-size: 28px;
-            }
-          }
-        }
-
-        @media (max-width: 320px) {
-          font-size: 20px;
+          background-color: #dcedc8;
         }
 
         @media (min-width: @tablet-min) {
-          width: 410px;
-          border: 1px solid white;
-          margin: 50px 0;
-          padding: 20px;
+          width: 150px;
+          height: 70px;
         }
 
-        .link {
-          color: white;
-          text-decoration: none;
-          transition: color 0.5s, font-size 0.5s;
+        @media (min-width: @desktop-min) {
+          width: 180px;
+          height: 90px;
+        }
+
+        @media (min-width: @desktop-max) {
+          width: 210px;
+          height: 120px;
+        }
+
+        &.uber {
+          background-image: url(./assets/uber-eats.png);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+          margin-right: 30px;
 
           @media (min-width: @tablet-min) {
-            font-size: 25px;
+            margin-right: 60px;
+          }
+
+          @media (min-width: @desktop-min) {
+            margin-right: 100px;
+          }
+        }
+
+        &.deliveroo {
+          background-image: url(./assets/deliveroo.png);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+          background-size: 40px;
+
+          @media (min-width: @tablet-min) {
+            background-size: 60px;
+          }
+
+          @media (min-width: @desktop-min) {
+            background-size: 70px;
+          }
+
+          @media (min-width: @desktop-max) {
+            background-size: 90px;
           }
         }
       }

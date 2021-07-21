@@ -1,15 +1,15 @@
 <div class="background"></div>
 <div class="title">
   <div class="hoverlay"></div>
+  <div class="title-background"></div>
+  <div class="logo"></div>
   <span>{{ title }}</span>
-  <div class="logo-down" (click)="goDown()">
-    <div class="logo"></div>
+  <div class="arrow-down" (click)="goDown()">
     <div class="arrow"></div>
   </div>
 </div>
 
 <div class="container-content" #stickyMenu>
-
   <div class="navigation" [class.sticky]="sticky">
     <ul class="menu">
       <li class="item" (click)="scrollTo(menu)">
@@ -39,6 +39,8 @@
     <div class="comp" #contact><app-contact></app-contact></div>
   </div>
 
-  <footer>Création du site web <a href="https://www.linkedin.com/in/bberanger">@BevLaDev</a></footer>
+  <footer class="footer">
+    Design & création du site web
+    <a href="https://www.linkedin.com/in/bberanger">@BevLaDev</a>
+  </footer>
 </div>
-

@@ -1,14 +1,72 @@
-<div class="pictures">
+<div class="pictures padding">
+  <div class="title">mes douceurs</div>
+  <div class="separator"></div>
+
   <ng-template [ngIf]="pictures.length > 0" [ngIfElse]="defaultpictures">
-    <div class="picture" *ngFor="let picture of pictures">
-      <div class="" *ngIf=""></div>
-      <img src="{{'data:image/jpg;base64,' + picture}}" alt="" />
+    <div class="row">
+      <div class="column un">
+        <div class="picture" *ngFor="let picture of pictures | slice: 0:6">
+          <img src="{{ 'data:image/jpg;base64,' + picture }}" alt="" />
+        </div>
+      </div>
+      <div class="column deux">
+        <div class="picture big" *ngFor="let picture of pictures | slice: 6:7">
+          <img src="{{ 'data:image/jpg;base64,' + picture }}" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column trois">
+        <div class="picture big" *ngFor="let picture of pictures | slice: 7:8">
+          <img src="{{ 'data:image/jpg;base64,' + picture }}" alt="" />
+        </div>
+      </div>
+      <div class="column quatre">
+        <div class="picture" *ngFor="let picture of pictures | slice: 8:14">
+          <img src="{{ 'data:image/jpg;base64,' + picture }}" alt="" />
+        </div>
+      </div>
     </div>
   </ng-template>
 
   <ng-template #defaultpictures>
-    <div class="picture" *ngFor="let defpicture of defaultPictures">
-      <img src="{{defpicture}}" alt="" />
+    <div class="row">
+      <div class="column un">
+        <div
+          class="picture"
+          *ngFor="let defpicture of defaultPictures | slice: 0:6"
+        >
+          <img src="{{ defpicture }}" alt="" />
+        </div>
+      </div>
+      <div class="column deux">
+        <div
+          class="picture big"
+          *ngFor="let defpicture of defaultPictures | slice: 6:7"
+        >
+          <img src="{{ defpicture }}" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column trois">
+        <div
+          class="picture big"
+          *ngFor="let defpicture of defaultPictures | slice: 7:8"
+        >
+          <img src="{{ defpicture }}" alt="" />
+        </div>
+      </div>
+      <div class="column quatre">
+        <div
+          class="picture"
+          *ngFor="let defpicture of defaultPictures | slice: 8:14"
+        >
+          <img src="{{ defpicture }}" alt="" />
+        </div>
+      </div>
     </div>
   </ng-template>
 </div>

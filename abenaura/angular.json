@@ -19,7 +19,33 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/assets/",
+                "output": "/assets/"
+              },
+              {
+                "glob": "**/*", 
+                "input": "src/assets/default-image", 
+                "output": "/"
+              },
+              {
+                "glob": "**/*", 
+                "input": "src/app/components/presentation/assets", 
+                "output": "/"
+              },
+              {
+                "glob": "**/*", 
+                "input": "src/app/components/formules/assets", 
+                "output": "/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src/",
+                "output": "/"
+              }
+            ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.less",
